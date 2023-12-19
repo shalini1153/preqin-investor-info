@@ -1,0 +1,8 @@
+{
+    "/api": {
+      "target": "https://developer.preqin.com",
+      "secure": false,
+      "changeOrigin": true
+    }
+  }
+  

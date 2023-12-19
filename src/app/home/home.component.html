@@ -1,0 +1,25 @@
+<div class="table-container">
+  <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>Firm ID</th>
+        <th>Firm Name</th>
+        <th>Type</th>
+        <th>Date Added</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let investor of investors">
+        <td>
+          <a [routerLink]="['/investors', investor.firmID]">{{ investor.firmID }}</a>
+        </td>
+        <td>{{ investor.firmName }}</td>
+        <td>{{ investor.firmType }}</td>
+        <td>{{ investor.yearEst }}</td>
+        <td>{{ investor.address }}</td>
+      </tr>
+    </tbody>
+    
+  </table>
+</div>

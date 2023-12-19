@@ -1,0 +1,48 @@
+<!-- src/app/investor/investor.component.html -->
+
+<div class="center-container">
+    <div class="container">
+      <div class="form-container">
+        <label for="assetClass">Select Asset Class:</label>
+        <select id="assetClass" [(ngModel)]="selectedAssetClass" (change)="loadCommitmentData()">
+          <option *ngFor="let assetClass of assetClasses" [value]="assetClass">{{ assetClass }}</option>
+        </select>
+      </div>
+  
+      <div *ngIf="commitmentData">
+        <!-- Display commitment data as needed -->
+      </div>
+    </div>
+  </div>
+  
+  <!-- src/app/investor/investor.component.html -->
+
+<div *ngIf="commitmentData && commitmentData.length > 0" class="table-container">
+  <table class="table table-bordered table-hover">
+    <thead class="thead-light">
+      <tr>
+        <th>Fund ID</th>
+        <th>Fund Name</th>
+        <th>Fund Manager Name</th>
+        <th>Fund Type</th>
+        <th>Fund Size</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let commitment of commitmentData">
+        <td>
+          {{ commitment.fundId }}
+        </td>
+        <td>{{ commitment.fundName }}</td>
+        <td>{{ commitment.fundManagerName }}</td>
+        <td>{{ commitment.fundType }}</td>
+        <td>{{ commitment.fundSizeMn }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Add a message for no data -->
+<div *ngIf="!commitmentData || commitmentData.length === 0">
+  <p>No data available.</p>
+</div>
